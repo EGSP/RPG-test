@@ -1,0 +1,16 @@
+﻿<Window x:Class="Rpegs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rpegs"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="158" Name="InventoryGrid"/>
+        <Button Content="Появление бандита" HorizontalAlignment="Left" Margin="226,117,0,0" VerticalAlignment="Top" Width="218" Height="107" Click="Button_Click"/>
+        <Button Content="Атаковать" HorizontalAlignment="Left" Margin="226,272,0,0" VerticalAlignment="Top" Width="218" Height="84" Click="Button_Click_1" Name="AttackBTN"/>
+        <TextBox Height="399" Margin="507,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="275" IsReadOnly="True" Name="TextLog"/>
+        <Button Content="Equip" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+    </Grid>
+</Window>
