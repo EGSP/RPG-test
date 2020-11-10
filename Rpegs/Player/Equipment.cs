@@ -30,6 +30,7 @@ namespace Rpegs.BodyParts
         }
         public bool Equip(Item item, bool left)
         {
+            Weapon wpn = (Weapon)item;
             if (item is IHandEquipable)
             {
                 if (left) //left

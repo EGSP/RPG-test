@@ -33,6 +33,7 @@ namespace Rpegs
             {
                 Name = "tester",
                 Health = 100,
+                Protection = 0,
                 Damage = 10,
                 CarriedWeight = 50,
                 ExpThresold = 1000,
@@ -41,6 +42,7 @@ namespace Rpegs
             };
 
             bandit = new Maradeur();
+            player.Equip(new Colt(), true);
 
             for (int i = 0; i < player.inventory.chunks.Count; i++)
             {
@@ -89,13 +91,7 @@ namespace Rpegs
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            try
-            {
-
-            }catch(Exception)
-            {
-
-            }
+            player.Equip(null, true);
         }
     }
 }
