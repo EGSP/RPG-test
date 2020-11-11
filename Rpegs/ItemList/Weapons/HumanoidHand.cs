@@ -17,7 +17,7 @@ namespace Rpegs.Items.Weapons
 
         public HumanoidHand(int baseDamage) : this()
         {
-            Damage = baseDamage;
+            WeaponDamage = baseDamage;
         }
     }
 }

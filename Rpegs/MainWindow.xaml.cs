@@ -3,6 +3,7 @@ using Rpegs.PlayerLogic;
 using System;
 using System.Windows;
 using Rpegs.NPC;
+using Rpegs.NPCLogic;
 
 namespace Rpegs
 {
@@ -29,6 +30,7 @@ namespace Rpegs
 
             bandit = new Robber();
             player.Equip(new Colt(), true);
+            player.Equip(new Marauder(), false);
 
             for (int i = 0; i < player.Inventory.chunks.Count; i++)
             {

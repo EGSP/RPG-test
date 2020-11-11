@@ -6,24 +6,19 @@ using System.Threading.Tasks;
 
 namespace Rpegs.Items
 {
-    public abstract class Weapon : Item, IHandEquipable
+    public abstract class Weapon : Item, IHandEquipable, IWeapon
     {
-        public int Damage { get; set; }
+        public int WeaponDamage { get; set; }
         public bool OneHanded { get; set; }
         public bool HasEffect { get; set; }
-        public bool IsAOE { get; set; }
+        public bool IsAoe { get; set; }
     }
 
-    public abstract class MeleeWeapon : Weapon
+    public interface IWeapon
     {
-        public double Durablity { get; set; }
-    }
-
-    public abstract class RangedWeapon : Weapon
-    { 
-        public int Durablity { get; set; }
-        public double Accuracy { get; set; }
-        public string AmmoType { get; set; }
-        public int Range { get; set; }
+        int WeaponDamage { get; set; }
+        bool OneHanded { get; set; }
+        bool HasEffect { get; set; }
+        bool IsAoe { get; set; }
     }
 }

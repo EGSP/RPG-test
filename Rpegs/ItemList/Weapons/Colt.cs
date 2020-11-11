@@ -10,10 +10,10 @@ namespace Rpegs.Items
             Value = 200;
             Weight = 2.3;
 
-            Damage = 25;
+            WeaponDamage = 25;
             OneHanded = true;
             HasEffect = false;
-            IsAOE = false;
+            IsAoe = false;
 
             Durablity = 100;
             Accuracy = 0.8;

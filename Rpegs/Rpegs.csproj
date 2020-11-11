@@ -68,6 +68,8 @@
     <Compile Include="ItemList\Weapons\Colt.cs" />
     <Compile Include="Items\Clothes.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\MeleeWeapon.cs" />
+    <Compile Include="Items\RangedWeapon.cs" />
     <Compile Include="Items\Weapon.cs" />
     <Compile Include="ItemList\Weapons\HumanoidHand.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -76,6 +78,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NPC\Humanoid.cs" />
     <Compile Include="NPC\NPC.cs" />
     <Compile Include="NPC\Additional\Robber.cs" />
     <Compile Include="NPC\NPCLIst.cs" />

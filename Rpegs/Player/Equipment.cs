@@ -29,41 +29,38 @@ namespace Rpegs.BodyParts
         {
             _owner = iHaveInventory;
         }
-        public bool Equip(Item item, bool left)
+        public bool Equip(IHandEquipable item, bool left)
         {
-            if (item is IHandEquipable)
+            if (left) //left
             {
-                if (left) //left
+                if (LeftHand.IsEmpty)
                 {
-                    if (LeftHand.IsEmpty)
-                    {
-                        LeftHand.CurrentlyEquipped = (IHandEquipable)item;
-                        return true;
-                    }
-                    else
-                    {
-                        _owner.Inventory.AddItem((Item)LeftHand.CurrentlyEquipped);
-                        LeftHand.CurrentlyEquipped = (IHandEquipable)item;
-                        return true;
-                    }
+                    LeftHand.CurrentlyEquipped = (IHandEquipable)item;
+                    return true;
                 }
-                else //right
+                else
                 {
-                    if (RightHand.IsEmpty)
-                    {
-                        RightHand.CurrentlyEquipped = (IHandEquipable)item;
-                        return true;
-                    }
-                    else
-                    {
-                        _owner.Inventory.AddItem((Item)RightHand.CurrentlyEquipped);
-                        RightHand.CurrentlyEquipped = (IHandEquipable)item;
-                        return true;
-                    }
+                    _owner.Inventory.AddItem((Item)LeftHand.CurrentlyEquipped);
+                    LeftHand.CurrentlyEquipped = (IHandEquipable)item;
+                    return true;
                 }
             }
-            return false;
+            else //right
+            {
+                if (RightHand.IsEmpty)
+                {
+                    RightHand.CurrentlyEquipped = (IHandEquipable)item;
+                    return true;
+                }
+                else
+                {
+                    _owner.Inventory.AddItem((Item)RightHand.CurrentlyEquipped);
+                    RightHand.CurrentlyEquipped = (IHandEquipable)item;
+                    return true;
+                }
+            }
         }
+
 
         public bool Wear(Item item)
         {

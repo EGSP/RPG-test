@@ -31,16 +31,16 @@ namespace Rpegs.PlayerLogic
                 int weaponDamage = 0;
                 var right = Equipment.RightHand;
                 var left = Equipment.LeftHand;
-                if (right != null && right.CurrentlyEquipped is Weapon)
+                if (right != null && right.CurrentlyEquipped is IWeapon)
                 {
-                    var weapon = Equipment.RightHand.CurrentlyEquipped as Weapon;
-                    weaponDamage += weapon.Damage;
+                    var weapon = Equipment.RightHand.CurrentlyEquipped as IWeapon;
+                    weaponDamage += weapon.WeaponDamage;
                 }
 
-                if (left != null && left.CurrentlyEquipped is Weapon)
+                if (left != null && left.CurrentlyEquipped is IWeapon)
                 {
-                    var weapon = Equipment.LeftHand.CurrentlyEquipped as Weapon;
-                    weaponDamage += weapon.Damage;
+                    var weapon = Equipment.LeftHand.CurrentlyEquipped as IWeapon;
+                    weaponDamage += weapon.WeaponDamage;
                 }
 
                 return weaponDamage;
@@ -60,7 +60,7 @@ namespace Rpegs.PlayerLogic
             Level++;
             ExpThresold = ExpThresold + (ExpThresold * 0.75);
         }
-        public void Equip(Item item, bool left)
+        public void Equip(IHandEquipable item, bool left)
         {
             Equipment.Equip(item, left);
         }
