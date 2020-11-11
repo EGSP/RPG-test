@@ -25,7 +25,7 @@ namespace Rpegs
     public partial class MainWindow : Window
     {
         Player player;
-        Maradeur bandit;
+        Robber bandit;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,28 +34,28 @@ namespace Rpegs
                 Name = "tester",
                 Health = 100,
                 Protection = 0,
-                Damage = 10,
+                Damage = 50,
                 CarriedWeight = 50,
                 ExpThresold = 1000,
                 Level = 1,
                 Experience = 0
             };
 
-            bandit = new Maradeur();
+            bandit = new Robber();
             player.Equip(new Colt(), true);
 
-            for (int i = 0; i < player.inventory.chunks.Count; i++)
+            for (int i = 0; i < player.Inventory.chunks.Count; i++)
             {
-                for(int di = 0; di < player.inventory.chunks[i].items.Count; di++)
+                for(int di = 0; di < player.Inventory.chunks[i].items.Count; di++)
                 {
-                    InventoryGrid.Items.Add(player.inventory.chunks[i].items[di]);
+                    InventoryGrid.Items.Add(player.Inventory.chunks[i].items[di]);
                 }
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            bandit = new Maradeur();
+            bandit = new Robber();
             AttackBTN.IsEnabled = true;
             TextLog.Text += $"{bandit.Name} появился!\n";
             MessageBox.Show(player.Experience.ToString());
@@ -85,7 +85,6 @@ namespace Rpegs
                 }
             }catch(Exception)
             {
-                MessageBox.Show("No bandit located");
             }
         }
 

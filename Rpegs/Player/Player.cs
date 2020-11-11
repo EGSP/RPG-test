@@ -8,12 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Rpegs.NPCLogic;
 using System.Windows;
+using Rpegs.Entities;
 
 namespace Rpegs.PlayerLogic
 {
-    public class Player : NPCBehaviour
+    public class Player : NPCBehaviour, IHaveInventory
     {
-        public Inventory inventory { get; private set; }
+        public Player()
+        {
+            Inventory = new Inventory();
+            equipment = new Equipment(this);
+        }
+        public Inventory Inventory { get; private set; }
         public Equipment equipment { get; private set; }
         public double CarriedWeight { get; set; }
         public double ExpThresold { get; set; }
@@ -39,11 +45,6 @@ namespace Rpegs.PlayerLogic
         public void Wear(Item item)
         {
             equipment.Wear(item);
-        }
-        public Player()
-        {
-            inventory = new Inventory();
-            equipment = new Equipment(this);
         }
     }
 

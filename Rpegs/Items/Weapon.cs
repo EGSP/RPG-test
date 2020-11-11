@@ -12,21 +12,11 @@ namespace Rpegs.Items
         public bool OneHanded { get; set; }
         public bool HasEffect { get; set; }
         public bool IsAOE { get; set; }
-
-        public override string ToString()
-        {
-            if (Name.Length > 0)
-            {
-                return Name;
-            }
-
-            return GetType().Name;
-        }
     }
 
     public abstract class MeleeWeapon : Weapon
     {
-        public int Durablity { get; set; }
+        public double Durablity { get; set; }
     }
 
     public abstract class RangedWeapon : Weapon

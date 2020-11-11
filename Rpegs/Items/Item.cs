@@ -18,6 +18,15 @@ namespace Rpegs.Items
         public bool CanBeCrafted { get; set; }
         public double Value { get; set; }
         public double Weight { get; set; }
+        public override string ToString()
+        {
+            if (Name.Length > 0)
+            {
+                return Name;
+            }
+
+            return GetType().Name;
+        }
     }
 
     public interface IWearable : IItem

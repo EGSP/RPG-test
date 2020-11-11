@@ -10,7 +10,6 @@ namespace Rpegs.NPCLogic
 {
     public abstract class NPC : Entity
     {
-        public string Name { get; set; }
         public string Fraction { get; set; }
         public List<Item> Loot { get; set; }
         public List<Item> AvailableDrop { get; set; }

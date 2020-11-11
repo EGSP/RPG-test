@@ -1,4 +1,5 @@
-﻿using Rpegs.Items;
+﻿using Rpegs.Entities;
+using Rpegs.Items;
 using Rpegs.PlayerLogic;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,10 @@ namespace Rpegs.BodyParts
     }
     public class Equipment
     {
-        private readonly Player Owner;
-        public Equipment(Player player)
+        private readonly IHaveInventory Owner;
+        public Equipment(IHaveInventory iHaveInventory)
         {
-            Owner = player;
+            Owner = iHaveInventory;
         }
         public bool Equip(Item item, bool left)
         {
@@ -42,7 +43,7 @@ namespace Rpegs.BodyParts
                     }
                     else
                     {
-                        Owner.inventory.AddItem((Item)LeftHand.CurrentlyEquipped);
+                        Owner.Inventory.AddItem((Item)LeftHand.CurrentlyEquipped);
                         LeftHand.CurrentlyEquipped = (IHandEquipable)item;
                         return true;
                     }
@@ -56,7 +57,7 @@ namespace Rpegs.BodyParts
                     }
                     else
                     {
-                        Owner.inventory.AddItem((Item)RightHand.CurrentlyEquipped);
+                        Owner.Inventory.AddItem((Item)RightHand.CurrentlyEquipped);
                         RightHand.CurrentlyEquipped = (IHandEquipable)item;
                         return true;
                     }
@@ -79,7 +80,7 @@ namespace Rpegs.BodyParts
                         }
                         else
                         {
-                            Owner.inventory.AddItem((Item)Head.CurrentlyEquipped);
+                            Owner.Inventory.AddItem((Item)Head.CurrentlyEquipped);
                             Head.CurrentlyEquipped = headWearable;
                             return true;
                         }
@@ -91,7 +92,7 @@ namespace Rpegs.BodyParts
                         }
                         else
                         {
-                            Owner.inventory.AddItem((Item)Body.CurrentlyEquipped);
+                            Owner.Inventory.AddItem((Item)Body.CurrentlyEquipped);
                             Body.CurrentlyEquipped = bodyWearable;
                             return true;
                         }
@@ -103,7 +104,7 @@ namespace Rpegs.BodyParts
                         }
                         else
                         {
-                            Owner.inventory.AddItem((Item)Legs.CurrentlyEquipped);
+                            Owner.Inventory.AddItem((Item)Legs.CurrentlyEquipped);
                             Legs.CurrentlyEquipped = legsWearable;
                             return true;
                         }
@@ -115,7 +116,7 @@ namespace Rpegs.BodyParts
                         }
                         else
                         {
-                            Owner.inventory.AddItem((Item)Foots.CurrentlyEquipped);
+                            Owner.Inventory.AddItem((Item)Foots.CurrentlyEquipped);
                             Foots.CurrentlyEquipped = footsWearable;
                             return true;
                         }
@@ -127,7 +128,7 @@ namespace Rpegs.BodyParts
                         }
                         else
                         {
-                            Owner.inventory.AddItem((Item)Hands.CurrentlyEquipped);
+                            Owner.Inventory.AddItem((Item)Hands.CurrentlyEquipped);
                             Hands.CurrentlyEquipped = handsWearable;
                             return true;
                         }
@@ -139,7 +140,7 @@ namespace Rpegs.BodyParts
                         }
                         else
                         {
-                            Owner.inventory.AddItem((Item)Mind.CurrentlyEquipped);
+                            Owner.Inventory.AddItem((Item)Mind.CurrentlyEquipped);
                             Mind.CurrentlyEquipped = mindWearable;
                             return true;
                         }

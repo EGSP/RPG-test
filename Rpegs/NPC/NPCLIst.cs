@@ -9,10 +9,10 @@ using System.Windows;
 
 namespace Rpegs.NPCLogic
 {
-    public class Maradeur : NPCBehaviour
+    public class Marauder : NPCBehaviour
     {
         public bool InCombat;
-        public Maradeur()
+        public Marauder()
         {
             Name = "Adam";
             Fraction = "Bandits";

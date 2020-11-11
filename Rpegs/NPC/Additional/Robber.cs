@@ -4,31 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Rpegs.BodyParts;
+using Rpegs.Entities;
 using Rpegs.Items.Weapons;
 using Rpegs.PlayerLogic;
 
 namespace Rpegs.NPCLogic
 {
-    public class Robber : NPCBehaviour
+    public class Robber : NPCBehaviour, IHaveInventory
     {
-        public readonly Inventory Inventory;
+        public Inventory Inventory { get; private set; }
         public readonly Equipment Equipment;
         public Robber()
         {
             Name = "Jobert";
             Fraction = "Bandits";
             Experience = 150;
-            Damage = -1;
+            Damage = 0;
             Health = 70;
 
-            // Экипировку нужно отвязать от игрока.
-            // Inventory = new Inventory();
-            // Equipment = new Equipment(this);
+            Inventory = new Inventory();
+            Equipment = new Equipment(this);
 
-            // // Левая хоровая
-            // Equipment.Equip(new HumanoidHand(7), true);
-            // // Правая пороховая
-            // Equipment.Equip(new HumanoidHand(11), false);
+            // Левая хоровая
+            Equipment.Equip(new HumanoidHand(2), true);
+            // Правая пороховая
+            Equipment.Equip(new HumanoidHand(23), false);
         }
 
     }

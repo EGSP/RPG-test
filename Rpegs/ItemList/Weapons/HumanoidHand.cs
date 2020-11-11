@@ -11,7 +11,7 @@ namespace Rpegs.Items.Weapons
         public HumanoidHand()
         {
             Name = "Humanoid hand";
-            // Вечные.
+            //Eternal
             Durablity = -1;
         }
 

@@ -1,4 +1,5 @@
 ﻿using Rpegs.Items;
+using Rpegs.PlayerLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,10 @@ namespace Rpegs.Entities
         public int Health { get; set; }
         public int Level { get; set; }
         public double Experience { get; set; }
+    }
+
+    public interface IHaveInventory
+    {
+        Inventory Inventory { get; }
     }
 }
