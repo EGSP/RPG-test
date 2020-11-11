@@ -15,7 +15,5 @@ namespace Rpegs.Entities
         public int Health { get; set; }
         public int Level { get; set; }
         public double Experience { get; set; }
-        public List<Item> Loot { get; set; }
-        public List<Item> AvailableDrop { get; set; }
     }
 }
