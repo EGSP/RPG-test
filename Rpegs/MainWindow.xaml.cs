@@ -1,21 +1,8 @@
 ﻿using Rpegs.Items;
-using Rpegs.NPCLogic;
 using Rpegs.PlayerLogic;
-using Rpegs.BodyParts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Rpegs.NPC;
 
 namespace Rpegs
 {
@@ -34,7 +21,6 @@ namespace Rpegs
                 Name = "tester",
                 Health = 100,
                 Protection = 0,
-                Damage = 50,
                 CarriedWeight = 50,
                 ExpThresold = 1000,
                 Level = 1,
@@ -64,27 +50,26 @@ namespace Rpegs
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //In method
-            try
+            if (!bandit.Dead && !player.Dead)
+            {                 
+                bandit.ReceiveDamage(player.Damage);
+                player.ReceiveDamage(bandit.Damage);
+                TextLog.Text += $"{player.Name} нанес: {player.Damage} \n{bandit.Fraction}:{bandit.Name} остался с {bandit.Health}HP \n" +
+                                $"{player.Name} остается с: {player.Health}HP\n";
+            }
+
+            if (player.Dead)
             {
-                if (!bandit.ReceiveDamage(player.Damage) && !player.ReceiveDamage(bandit.Damage))
-                {                  
-                    TextLog.Text += $"{player.Name} нанес: {player.Damage} \n{bandit.Fraction}:{bandit.Name} остался с {bandit.Health}HP \n" +
-                        $"{player.Name} остается с: {player.Health}HP\n";
-                }
-                else if (player.ReceiveDamage(bandit.Damage))
-                {
-                    TextLog.Text += $"{player.Name} умирает\n";
-                    AttackBTN.IsEnabled = false;
-                }
-                else if(bandit.ReceiveDamage(player.Damage))
-                {
-                    TextLog.Text += $"{bandit.Name} умирает\n";
-                    player.ReceiveExperience(bandit, player);
-                    bandit = null;
-                    AttackBTN.IsEnabled = false;
-                }
-            }catch(Exception)
+                TextLog.Text += $"{player.Name} умирает\n";
+                AttackBTN.IsEnabled = false;
+            }
+
+            if(bandit.Dead)
             {
+                TextLog.Text += $"{bandit.Name} умирает\n";
+                player.ReceiveExperience(bandit, player);
+                bandit = null;
+                AttackBTN.IsEnabled = false;
             }
         }
 

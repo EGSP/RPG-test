@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Rpegs.NPC;
 
 namespace Rpegs.NPCLogic
 {
-    public class Marauder : NPCBehaviour
+    public class Marauder : Humanoid
     {
         public bool InCombat;
         public Marauder()
@@ -17,7 +18,6 @@ namespace Rpegs.NPCLogic
             Name = "Adam";
             Fraction = "Bandits";
             Experience = 100;
-            Damage = 10;
             Health = 100;
         }
     }

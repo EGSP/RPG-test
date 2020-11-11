@@ -9,21 +9,44 @@ using System.Threading.Tasks;
 using Rpegs.NPCLogic;
 using System.Windows;
 using Rpegs.Entities;
+using Rpegs.NPC;
 
 namespace Rpegs.PlayerLogic
 {
-    public class Player : NPCBehaviour, IHaveInventory
+    public class Player : Entity, IHaveInventory, IDamagable
     {
         public Player()
         {
             Inventory = new Inventory();
-            equipment = new Equipment(this);
+            Equipment = new Equipment(this);
         }
         public Inventory Inventory { get; private set; }
-        public Equipment equipment { get; private set; }
+        public Equipment Equipment { get; private set; }
         public double CarriedWeight { get; set; }
         public double ExpThresold { get; set; }
-        public void ReceiveExperience(NPC npc, Player player)
+        public override int Damage
+        {
+            get
+            {
+                int weaponDamage = 0;
+                var right = Equipment.RightHand;
+                var left = Equipment.LeftHand;
+                if (right != null && right.CurrentlyEquipped is Weapon)
+                {
+                    var weapon = Equipment.RightHand.CurrentlyEquipped as Weapon;
+                    weaponDamage += weapon.Damage;
+                }
+
+                if (left != null && left.CurrentlyEquipped is Weapon)
+                {
+                    var weapon = Equipment.LeftHand.CurrentlyEquipped as Weapon;
+                    weaponDamage += weapon.Damage;
+                }
+
+                return weaponDamage;
+            }
+        }
+        public void ReceiveExperience(Npc npc, Player player)
         {
             player.Experience += npc.Experience;
             if(player.Experience >= player.ExpThresold)
@@ -39,12 +62,23 @@ namespace Rpegs.PlayerLogic
         }
         public void Equip(Item item, bool left)
         {
-            equipment.Equip(item, left);
+            Equipment.Equip(item, left);
         }
 
         public void Wear(Item item)
         {
-            equipment.Wear(item);
+            Equipment.Wear(item);
+        }
+
+        public int Health { get; set; }
+        public bool Dead => Health <= 0;
+        public double Protection { get; set; }
+
+        public void ReceiveDamage(int damage)
+        {
+            Health -= damage;
+            if (Health < 0)
+                Health = 0;
         }
     }
 

@@ -6,24 +6,19 @@ using System.Threading.Tasks;
 using Rpegs.BodyParts;
 using Rpegs.Entities;
 using Rpegs.Items.Weapons;
+using Rpegs.NPC;
 using Rpegs.PlayerLogic;
 
-namespace Rpegs.NPCLogic
+namespace Rpegs.NPC
 {
-    public class Robber : NPCBehaviour, IHaveInventory
+    public class Robber : Humanoid
     {
-        public Inventory Inventory { get; private set; }
-        public readonly Equipment Equipment;
-        public Robber()
+        public Robber() : base()
         {
             Name = "Jobert";
             Fraction = "Bandits";
             Experience = 150;
-            Damage = 0;
             Health = 70;
-
-            Inventory = new Inventory();
-            Equipment = new Equipment(this);
 
             // Левая хоровая
             Equipment.Equip(new HumanoidHand(2), true);

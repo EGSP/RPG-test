@@ -78,7 +78,6 @@
   <ItemGroup>
     <Compile Include="NPC\NPC.cs" />
     <Compile Include="NPC\Additional\Robber.cs" />
-    <Compile Include="NPC\NPCBehaviour.cs" />
     <Compile Include="NPC\NPCLIst.cs" />
     <Compile Include="Player\Equipment.cs" />
     <Compile Include="Player\Player.cs" />
