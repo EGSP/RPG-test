@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rpegs.Items.Weapons
+namespace Rpegs.Items
 {
     public class HumanoidHand : MeleeWeapon
     {

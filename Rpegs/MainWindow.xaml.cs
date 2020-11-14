@@ -1,9 +1,8 @@
 ﻿using Rpegs.Items;
-using Rpegs.PlayerLogic;
+using Rpegs.Entities;
 using System;
 using System.Windows;
 using Rpegs.NPC;
-using Rpegs.NPCLogic;
 
 namespace Rpegs
 {

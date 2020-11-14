@@ -64,26 +64,32 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="ItemList\Misc\IronIngot.cs" />
-    <Compile Include="ItemList\Weapons\Colt.cs" />
-    <Compile Include="Items\Clothes.cs" />
-    <Compile Include="Items\Item.cs" />
-    <Compile Include="Items\MeleeWeapon.cs" />
-    <Compile Include="Items\RangedWeapon.cs" />
-    <Compile Include="Items\Weapon.cs" />
-    <Compile Include="ItemList\Weapons\HumanoidHand.cs" />
+    <Compile Include="Items\Clothes\Body\LeatherCloak.cs" />
+    <Compile Include="Items\Clothes\ClothesBlueprint.cs" />
+    <Compile Include="Items\Clothes\Head\CowboyHat.cs" />
+    <Compile Include="Items\Misc\IronIngot.cs" />
+    <Compile Include="Items\Misc\MiscBlueprint.cs" />
+    <Compile Include="Items\Weapons\Colt.cs" />
+    <Compile Include="Items\Weapons\WeaponsBlueprint.cs" />
+    <Compile Include="ItemsOrigin\Clothes.cs" />
+    <Compile Include="ItemsOrigin\Item.cs" />
+    <Compile Include="ItemsOrigin\MeleeWeapon.cs" />
+    <Compile Include="ItemsOrigin\RangedWeapon.cs" />
+    <Compile Include="ItemsOrigin\Weapon.cs" />
+    <Compile Include="Items\Weapons\HumanoidHand.cs" />
+    <Compile Include="LoadResources.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NPC\Humanoid.cs" />
-    <Compile Include="NPC\NPC.cs" />
-    <Compile Include="NPC\Additional\Robber.cs" />
-    <Compile Include="NPC\NPCLIst.cs" />
-    <Compile Include="Player\Equipment.cs" />
-    <Compile Include="Player\Player.cs" />
+    <Compile Include="Entities\NPC\Additional\Marauder.cs" />
+    <Compile Include="Entities\NPC\NPCOrigin\Humanoid.cs" />
+    <Compile Include="Entities\NPC\NPCOrigin\NPC.cs" />
+    <Compile Include="Entities\NPC\Additional\Robber.cs" />
+    <Compile Include="Entities\Player\Equipment.cs" />
+    <Compile Include="Entities\Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -110,7 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ItemList\Clothes\" />
+    <Folder Include="Items\Clothes\Foots\" />
+    <Folder Include="Items\Clothes\Hands\" />
+    <Folder Include="Items\Clothes\Legs\" />
+    <Folder Include="Items\Clothes\Mind\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,14 +7,14 @@ namespace Rpegs.Items
             //Item properties
             Name = null;
             Description = null;
-            CanBeCrafted = null;
-            Value = null;
-            Weight = null;
+            CanBeCrafted = false;
+            Value = 0;
+            Weight = 0;
 
             //Clothes properties
-            Protection = null;
-            Durablity = null;
-            CarryExpansion = null;            
+            Protection = 0;
+            Durablity = 0;
+            CarryExpansion = 0;            
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using Rpegs.BodyParts;
-using Rpegs.Entities;
+﻿using Rpegs.Entities;
 using Rpegs.Items;
-using Rpegs.PlayerLogic;
 
 namespace Rpegs.NPC
 {

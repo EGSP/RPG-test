@@ -1,14 +1,6 @@
 ﻿using Rpegs.Items;
-using Rpegs.PlayerLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using Rpegs.NPC;
 
-namespace Rpegs.NPCLogic
+namespace Rpegs.NPC
 {
     public class Marauder : Humanoid, IWeapon, IHandEquipable
     {

@@ -1,17 +1,10 @@
 ﻿using Rpegs.Items;
-using Rpegs.BodyParts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting;
-using System.Text;
-using System.Threading.Tasks;
-using Rpegs.NPCLogic;
-using System.Windows;
-using Rpegs.Entities;
 using Rpegs.NPC;
 
-namespace Rpegs.PlayerLogic
+namespace Rpegs.Entities
 {
     public class Player : Entity, IHaveInventory, IDamagable
     {

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rpegs.BodyParts;
-using Rpegs.Entities;
-using Rpegs.Items.Weapons;
-using Rpegs.NPC;
-using Rpegs.PlayerLogic;
+using Rpegs.Items;
 
 namespace Rpegs.NPC
 {
