@@ -1,5 +1,4 @@
-﻿using System;
-using Rpegs.Items;
+﻿using Rpegs.Items;
 
 namespace Rpegs.NPC
 {

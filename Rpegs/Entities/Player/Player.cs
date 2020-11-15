@@ -51,7 +51,7 @@ namespace Rpegs.Entities
         public void LevelUp()
         {
             Level++;
-            ExpThresold = ExpThresold + (ExpThresold * 0.75);
+            ExpThresold += (ExpThresold * 0.75);
         }
         public void Equip(IHandEquipable item, bool left)
         {
@@ -77,18 +77,18 @@ namespace Rpegs.Entities
 
     public class Inventory
     {
-        public List<ItemChunk> chunks = new List<ItemChunk>();
+        public List<ItemChunk> Chunks = new List<ItemChunk>();
         public void AddItem(Item item)
         {
             Type itemType = item.GetType();
-            ItemChunk itemChunk = chunks.FirstOrDefault(
+            ItemChunk itemChunk = Chunks.FirstOrDefault(
                 x => x.ItemType == itemType);
             
             if(itemChunk == null)
             {
                 ItemChunk newChunk = new ItemChunk(itemType);
                 newChunk.InsertItem(item);
-                chunks.Add(newChunk);
+                Chunks.Add(newChunk);
             }
             else
             {
@@ -100,27 +100,27 @@ namespace Rpegs.Entities
     public class ItemChunk
     {
         public Type ItemType { get; private set; }
-        public List<Item> items { get; private set; }
+        public List<Item> Items { get; private set; }
 
-        public bool IsEmpty => items.Count == 0;
+        public bool IsEmpty => Items.Count == 0;
 
-        public int Count => items.Count;
+        public int Count => Items.Count;
 
         public ItemChunk(Type itemType)
         {
             ItemType = itemType;
-            items = new List<Item>();
+            Items = new List<Item>();
         }
 
         public void InsertItem(Item item)
         {
-            items.Add(item);
+            Items.Add(item);
         }
 
         public Item TakeItem()
         {
-            var item = items[0];
-            items.RemoveAt(0);
+            var item = Items[0];
+            Items.RemoveAt(0);
             return item;
         }
     }

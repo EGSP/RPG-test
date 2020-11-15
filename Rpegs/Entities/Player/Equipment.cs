@@ -1,6 +1,4 @@
-﻿using Rpegs.Entities;
-using Rpegs.Items;
-using System;
+﻿using Rpegs.Items;
 
 namespace Rpegs.Entities
 {

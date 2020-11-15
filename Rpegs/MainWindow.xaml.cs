@@ -1,6 +1,6 @@
-﻿using Rpegs.Items;
+﻿using System.Linq;
+using Rpegs.Items;
 using Rpegs.Entities;
-using System;
 using System.Windows;
 using Rpegs.NPC;
 
@@ -30,14 +30,6 @@ namespace Rpegs
             bandit = new Robber();
             player.Equip(new Colt(), true);
             player.Equip(new Marauder(), false);
-
-            for (int i = 0; i < player.Inventory.chunks.Count; i++)
-            {
-                for(int di = 0; di < player.Inventory.chunks[i].items.Count; di++)
-                {
-                    InventoryGrid.Items.Add(player.Inventory.chunks[i].items[di]);
-                }
-            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,13 +57,11 @@ namespace Rpegs
                 AttackBTN.IsEnabled = false;
             }
 
-            if(bandit.Dead)
-            {
-                TextLog.Text += $"{bandit.Name} умирает\n";
-                player.ReceiveExperience(bandit, player);
-                bandit = null;
-                AttackBTN.IsEnabled = false;
-            }
+            if (!bandit.Dead) return;
+            TextLog.Text += $"{bandit.Name} умирает\n";
+            player.ReceiveExperience(bandit, player);
+            bandit = null;
+            AttackBTN.IsEnabled = false;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
