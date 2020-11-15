@@ -2,7 +2,7 @@
 using Rpegs.Entities;
 using Rpegs.Items;
 
-namespace Rpegs.NPC
+namespace Rpegs.Entities.Npcs
 {
     public abstract class Npc : Entity
     {

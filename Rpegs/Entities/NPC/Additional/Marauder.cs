@@ -1,6 +1,6 @@
 ﻿using Rpegs.Items;
 
-namespace Rpegs.NPC
+namespace Rpegs.Entities.Npcs
 {
     public class Marauder : Humanoid, IWeapon, IHandEquipable
     {

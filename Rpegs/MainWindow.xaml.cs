@@ -2,7 +2,8 @@
 using Rpegs.Entities;
 using System;
 using System.Windows;
-using Rpegs.NPC;
+using Rpegs.Entities.Player;
+using Rpegs.Entities.Npcs;
 
 namespace Rpegs
 {
@@ -31,11 +32,11 @@ namespace Rpegs
             player.Equip(new Colt(), true);
             player.Equip(new Marauder(), false);
 
-            for (int i = 0; i < player.Inventory.chunks.Count; i++)
+            for (int i = 0; i < player.Inventory.Chunks.Count; i++)
             {
-                for(int di = 0; di < player.Inventory.chunks[i].items.Count; di++)
+                for(int di = 0; di < player.Inventory.Chunks[i].Items.Count; di++)
                 {
-                    InventoryGrid.Items.Add(player.Inventory.chunks[i].items[di]);
+                    InventoryGrid.Items.Add(player.Inventory.Chunks[i].Items[di]);
                 }
             }
         }

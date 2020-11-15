@@ -13,12 +13,4 @@ namespace Rpegs.Items
         public bool HasEffect { get; set; }
         public bool IsAoe { get; set; }
     }
-
-    public interface IWeapon
-    {
-        int WeaponDamage { get; set; }
-        bool OneHanded { get; set; }
-        bool HasEffect { get; set; }
-        bool IsAoe { get; set; }
-    }
 }

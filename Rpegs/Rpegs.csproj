@@ -64,19 +64,34 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Equipment\IHaveInventory.cs" />
+    <Compile Include="Entities\Components\IDamagable.cs" />
+    <Compile Include="Entities\Equipment\Inventory.cs" />
+    <Compile Include="Entities\Equipment\ItemChunk.cs" />
+    <Compile Include="Entities\Npc\Additional\ExoticBiomass.cs" />
+    <Compile Include="Items\Weapons\IWeapon.cs" />
     <Compile Include="Items\Clothes\Body\LeatherCloak.cs" />
     <Compile Include="Items\Clothes\ClothesBlueprint.cs" />
     <Compile Include="Items\Clothes\Head\CowboyHat.cs" />
+    <Compile Include="Items\Types\Wearable\IBodyWearable.cs" />
+    <Compile Include="Items\Types\Wearable\IFootsWearable.cs" />
+    <Compile Include="Items\Types\Wearable\IHandEquipable.cs" />
+    <Compile Include="Items\Types\Wearable\IHandsWearable.cs" />
+    <Compile Include="Items\Types\Wearable\IHeadWearable.cs" />
+    <Compile Include="Items\IItem.cs" />
+    <Compile Include="Items\Types\Wearable\ILegsWearable.cs" />
+    <Compile Include="Items\Types\Wearable\IMindWearable.cs" />
+    <Compile Include="Items\Types\Wearable\IWearable.cs" />
     <Compile Include="Items\Misc\IronIngot.cs" />
     <Compile Include="Items\Misc\MiscBlueprint.cs" />
-    <Compile Include="Items\Weapons\Colt.cs" />
+    <Compile Include="Items\Weapons\Ranged\Guns\Colt.cs" />
     <Compile Include="Items\Weapons\WeaponsBlueprint.cs" />
-    <Compile Include="ItemsOrigin\Clothes.cs" />
-    <Compile Include="ItemsOrigin\Item.cs" />
-    <Compile Include="ItemsOrigin\MeleeWeapon.cs" />
-    <Compile Include="ItemsOrigin\RangedWeapon.cs" />
-    <Compile Include="ItemsOrigin\Weapon.cs" />
-    <Compile Include="Items\Weapons\HumanoidHand.cs" />
+    <Compile Include="Items\Clothes\Clothes.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\Weapons\Melee\MeleeWeapon.cs" />
+    <Compile Include="Items\Weapons\Ranged\RangedWeapon.cs" />
+    <Compile Include="Items\Weapons\Weapon.cs" />
+    <Compile Include="Items\Weapons\Melee\Hands\HumanoidHand.cs" />
     <Compile Include="LoadResources.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -84,11 +99,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\NPC\Additional\Marauder.cs" />
-    <Compile Include="Entities\NPC\NPCOrigin\Humanoid.cs" />
-    <Compile Include="Entities\NPC\NPCOrigin\NPC.cs" />
-    <Compile Include="Entities\NPC\Additional\Robber.cs" />
-    <Compile Include="Entities\Player\Equipment.cs" />
+    <Compile Include="Entities\Npc\Additional\Marauder.cs" />
+    <Compile Include="Entities\Npc\Origin\Humanoid.cs" />
+    <Compile Include="Entities\Npc\Npc.cs" />
+    <Compile Include="Entities\Npc\Additional\Robber.cs" />
+    <Compile Include="Entities\Equipment\Equipment.cs" />
     <Compile Include="Entities\Player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -1,10 +1,7 @@
 ﻿using Rpegs.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Rpegs.NPC;
+using Rpegs.Entities.Npcs;
 
-namespace Rpegs.Entities
+namespace Rpegs.Entities.Player
 {
     public class Player : Entity, IHaveInventory, IDamagable
     {
@@ -13,6 +10,7 @@ namespace Rpegs.Entities
             Inventory = new Inventory();
             Equipment = new Equipment(this);
         }
+
         public Inventory Inventory { get; private set; }
         public Equipment Equipment { get; private set; }
         public double CarriedWeight { get; set; }
@@ -39,6 +37,12 @@ namespace Rpegs.Entities
                 return weaponDamage;
             }
         }
+
+        public int Health { get; set; }
+        public double Protection { get; set; }
+
+        public bool Dead => Health <= 0;
+
         public void ReceiveExperience(Npc npc, Player player)
         {
             player.Experience += npc.Experience;
@@ -48,80 +52,28 @@ namespace Rpegs.Entities
                 LevelUp();
             }
         }
+
         public void LevelUp()
         {
             Level++;
             ExpThresold = ExpThresold + (ExpThresold * 0.75);
         }
+
         public void Equip(IHandEquipable item, bool left)
         {
             Equipment.Equip(item, left);
         }
 
-        public void Wear(Item item)
+        public void Wear(Item wearable)
         {
-            Equipment.Wear(item);
+            Equipment.Wear(wearable);
         }
-
-        public int Health { get; set; }
-        public bool Dead => Health <= 0;
-        public double Protection { get; set; }
 
         public void ReceiveDamage(int damage)
         {
             Health -= damage;
             if (Health < 0)
                 Health = 0;
-        }
-    }
-
-    public class Inventory
-    {
-        public List<ItemChunk> chunks = new List<ItemChunk>();
-        public void AddItem(Item item)
-        {
-            Type itemType = item.GetType();
-            ItemChunk itemChunk = chunks.FirstOrDefault(
-                x => x.ItemType == itemType);
-            
-            if(itemChunk == null)
-            {
-                ItemChunk newChunk = new ItemChunk(itemType);
-                newChunk.InsertItem(item);
-                chunks.Add(newChunk);
-            }
-            else
-            {
-                itemChunk.InsertItem(item);
-            }
-        }
-    }
-
-    public class ItemChunk
-    {
-        public Type ItemType { get; private set; }
-        public List<Item> items { get; private set; }
-
-        public bool IsEmpty => items.Count == 0;
-
-        public int Count => items.Count;
-
-        public ItemChunk(Type itemType)
-        {
-            ItemType = itemType;
-            items = new List<Item>();
-        }
-
-        public void InsertItem(Item item)
-        {
-            items.Add(item);
-        }
-
-        public Item TakeItem()
-        {
-            var item = items[0];
-            items.RemoveAt(0);
-            return item;
         }
     }
 }

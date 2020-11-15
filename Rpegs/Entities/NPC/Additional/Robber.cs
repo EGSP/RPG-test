@@ -1,7 +1,7 @@
 ﻿using System;
 using Rpegs.Items;
 
-namespace Rpegs.NPC
+namespace Rpegs.Entities.Npcs
 {
     public class Robber : Humanoid
     {

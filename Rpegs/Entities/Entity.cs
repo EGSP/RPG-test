@@ -10,17 +10,4 @@ namespace Rpegs.Entities
         public int Level { get; set; }
         public double Experience { get; set; }
     }
-
-    public interface IHaveInventory
-    {
-        Inventory Inventory { get; }
-    }
-
-    public interface IDamagable
-    { 
-        int Health { get; } 
-        bool Dead { get; }
-        double Protection { get; }
-        void ReceiveDamage(int damage);
-    }
 }

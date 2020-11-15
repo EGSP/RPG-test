@@ -1,7 +1,8 @@
 ﻿using Rpegs.Entities;
+using Rpegs.Entities.Player;
 using Rpegs.Items;
 
-namespace Rpegs.NPC
+namespace Rpegs.Entities.Npcs
 {
     public abstract class Humanoid : Npc, IHaveInventory, IDamagable
     {
@@ -10,6 +11,7 @@ namespace Rpegs.NPC
             Inventory = new Inventory();
             Equipment = new Equipment(this);
         }
+
         public override int Damage 
         {
             get
@@ -33,9 +35,13 @@ namespace Rpegs.NPC
             }
         }
         public Inventory Inventory { get; }
+
         public readonly Equipment Equipment;
+
         public int Health { get; set; }
+
         public bool Dead => Health <= 0;
+
         public double Protection { get; set; }
 
         public void ReceiveDamage(int damage)
